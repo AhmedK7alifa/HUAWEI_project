@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Huawei's journey from small startup to global tech leader in telecommunications, smartphones, and AI innovation">
+    <title>Huawei - Building a Fully Connected, Intelligent World</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Global Styles ===== */
+        :root {
+            --primary: #c7000b;
+            --primary-dark: #a00009;
+            --secondary: #002f6c;
+            --secondary-light: #004a9f;
+            --light: #f5f5f5;
+            --lighter: #f9f9f9;
+            --dark: #222;
+            --darker: #111;
+            --gray: #777;
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-md: 0 5px 15px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 32px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--lighter);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: var(--radius-xl);
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-light);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ===== Header ===== */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 40px;
+            transition: var(--transition);
+        }
+
+        header.scrolled .logo-img {
+            height: 30px;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        header.scrolled .logo-text {
+            font-size: 1.5rem;
+        }
+
+        /* ===== Navigation ===== */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a:focus::after {
+            width: 100%;
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(transparent, var(--lighter));
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: fadeIn 1s ease-out;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease-out 0.3s both;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        /* ===== About Section ===== */
+        .about {
+            background-color: var(--lighter);
+            position: relative;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content h2 {
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .milestones {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .milestone {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .milestone:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .milestone i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .milestone h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .milestone p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* ===== 3D History Slider Styles ===== */
+        .history-section {
+            background-color: white;
+            overflow: hidden;
+            padding: 6rem 0;
+        }
+
+        .history-container {
+            position: relative;
+            height: 600px;
+            perspective: 1000px;
+        }
+
+        .history-track {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 400px;
+            transform-style: preserve-3d;
+            transition: var(--transition);
+        }
+
+        .history-slide {
+            position: absolute;
+            width: 800px;
+            height: 400px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            display: flex;
+            overflow: hidden;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .history-slide.active {
+            opacity: 1;
+            z-index: 10;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .history-slide.prev {
+            transform: translate(-120%, -50%) rotateY(15deg) scale(0.9);
+            opacity: 0.6;
+            z-index: 5;
+        }
+
+        .history-slide.next {
+            transform: translate(20%, -50%) rotateY(-15deg) scale(0.9);
+            opacity: 0.6;
+            z-index: 5;
+        }
+
+        .history-slide.far-prev {
+            transform: translate(-180%, -50%) rotateY(25deg) scale(0.8);
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .history-slide.far-next {
+            transform: translate(80%, -50%) rotateY(-25deg) scale(0.8);
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .history-image {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .history-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+
+        .history-slide:hover .history-image img {
+            transform: scale(1.05);
+        }
+
+        .history-content {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .era-year {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .era-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .era-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .era-description {
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .era-highlights {
+            margin-bottom: 2rem;
+        }
+
+        .era-highlights li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .era-highlights li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .history-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 100;
+            padding: 0 1rem;
+        }
+
+        .history-nav button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .history-nav button:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .history-pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 0.5rem;
+        }
+
+        .history-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .history-dot.active {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+
+        /* ===== Products Section ===== */
+        .products {
+            background-color: var(--lighter);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .product-desc {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .product-features {
+            margin-bottom: 1.5rem;
+        }
+
+        .product-features li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-features i {
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        .product-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* ===== Innovation Section ===== */
+        .innovation {
+            background: linear-gradient(135deg, var(--secondary), var(--darker));
+            color: white;
+        }
+
+        .innovation .section-title {
+            color: white;
+        }
+
+        .innovation .section-title::after {
+            background: var(--primary);
+        }
+
+        .innovation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .innovation-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .innovation-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: var(--shadow-md);
+        }
+
+        .innovation-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .innovation-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .innovation-desc {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===== Testimonials Section ===== */
+        .testimonials {
+            background-color: white;
+        }
+
+        .testimonial-slider {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-slide {
+            padding: 2rem;
+            text-align: center;
+            display: none;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .testimonial-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 4px solid var(--primary);
+        }
+
+        .testimonial-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .testimonial-quote::before,
+        .testimonial-quote::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--primary);
+            opacity: 0.5;
+            position: absolute;
+        }
+
+        .testimonial-quote::before {
+            top: -20px;
+            left: -20px;
+        }
+
+        .testimonial-quote::after {
+            bottom: -30px;
+            right: -20px;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .testimonial-position {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* ===== CTA Section ===== */
+        .cta {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 8rem 0;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-desc {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: var(--darker);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo-img {
+            height: 30px;
+        }
+
+        .footer-logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-about {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .footer-links i {
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: white;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: var(--shadow-md);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        /* ===== Animations ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .history-slide {
+                width: 700px;
+                height: 380px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .about-img {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .milestones {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .history-slide {
+                width: 600px;
+                height: 350px;
+                flex-direction: column;
+            }
+            
+            .history-image {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                backdrop-filter: blur(10px);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .hero {
+                height: auto;
+                min-height: auto;
+                padding: 120px 0 80px;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+            }
+            
+            .milestones {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-slide {
+                padding: 1rem;
+            }
+            
+            .cta-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .history-container {
+                height: 500px;
+            }
+            
+            .history-slide {
+                width: 90%;
+                height: auto;
+            }
+            
+            .history-slide.prev {
+                transform: translate(-110%, -50%) rotateY(15deg) scale(0.9);
+            }
+            
+            .history-slide.next {
+                transform: translate(10%, -50%) rotateY(-15deg) scale(0.9);
+            }
+            
+            .history-slide.far-prev {
+                transform: translate(-150%, -50%) rotateY(25deg) scale(0.8);
+            }
+            
+            .history-slide.far-next {
+                transform: translate(60%, -50%) rotateY(-25deg) scale(0.8);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .about-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .era-title {
+                font-size: 1.5rem;
+            }
+            
+            .history-nav button {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#hero" class="logo">
+                <img src="huawei logo.jpg" alt="Huawei Logo" class="logo-img">
+                <span class="logo-text">Huawei</span>
+            </a>
+            
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="nav-links" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#history">Journey</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#innovation">Innovation</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Pioneering the Future of Connectivity</h1>
+                <p class="hero-subtitle">From humble beginnings in Shenzhen to global leadership in telecommunications and smart devices</p>
+                <div class="hero-btns">
+                    <a href="#products" class="btn">Explore Products</a>
+                    <a href="#history" class="btn btn-outline">Our Journey</a>
+                </div>
+            </div>
+        </div>
+        <a href="#about" class="scroll-down" aria-label="Scroll down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title">About Huawei</h2>
+            <div class="about-container">
+                <div class="about-img">
+                    <img src="images/huawei_headquarters.webp" alt="Huawei Headquarters">
+                </div>
+                <div class="about-content">
+                    <h2>From Startup to Global Tech Leader</h2>
+                    <p>Founded in 1987 by Ren Zhengfei, Huawei began as a small sales agent for phone switches in Shenzhen, China. With initial capital of just ¥21,000 (about $5,000 at the time), the company has grown to become the world's largest telecommunications equipment manufacturer and a leading global provider of smart devices and cloud services.</p>
+                    <p>Today, Huawei operates in over 170 countries and regions, serving more than 3 billion people worldwide. The company invests heavily in research and development, with over 197,000 employees and 114,000 of them working in R&D.</p>
+                    <p>Huawei's mission is to bring digital to every person, home and organization for a fully connected, intelligent world. The company is committed to openness, collaboration, and shared success in the global ecosystem.</p>
+                    
+                    <div class="milestones">
+                        <div class="milestone">
+                            <i class="fas fa-globe"></i>
+                            <h3>170+</h3>
+                            <p>Countries Served</p>
+                        </div>
+                        <div class="milestone">
+                            <i class="fas fa-users"></i>
+                            <h3>197K</h3>
+                            <p>Employees</p>
+                        </div>
+                        <div class="milestone">
+                            <i class="fas fa-flask"></i>
+                            <h3>114K</h3>
+                            <p>R&D Staff</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="section history-section">
+        <div class="container">
+            <h2 class="section-title">Huawei's Interactive Journey</h2>
+            
+            <div class="history-container">
+                <div class="history-track" id="historyTrack">
+                    <!-- Slide 1 -->
+                    <article class="history-slide active" data-index="0">
+                        <div class="history-image">
+                            <img src="images/The Founding Era.jpg" alt="Huawei Founding Era">
+                        </div>
+                        <div class="history-content">
+                            <div class="era-year">1987-1996</div>
+                            <h3 class="era-title">The Founding Era</h3>
+                            <p class="era-description">Huawei was established in Shenzhen with modest beginnings, focusing on manufacturing phone switches and laying the foundation for future innovation.</p>
+                            <ul class="era-highlights">
+                                <li>Founded by Ren Zhengfei with ¥21,000 capital</li>
+                                <li>Initial focus on PBX switch manufacturing</li>
+                                <li>First R&D center established in 1990</li>
+                                <li>Shifted from reselling to自主研发 products</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <!-- Slide 2 -->
+                    <article class="history-slide next" data-index="1">
+                        <div class="history-image">
+                            <img src="images/Global Expansion.jpg" alt="Huawei Global Expansion">
+                        </div>
+                        <div class="history-content">
+                            <div class="era-year">1997-2005</div>
+                            <h3 class="era-title">Global Expansion</h3>
+                            <p class="era-description">Huawei began its international journey, expanding from China to emerging markets and eventually to developed countries worldwide.</p>
+                            <ul class="era-highlights">
+                                <li>First international contract in Russia (1997)</li>
+                                <li>Entered European market (2001)</li>
+                                <li>Established 12 R&D centers worldwide</li>
+                                <li>Annual revenue surpassed $5 billion</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <!-- Slide 3 -->
+                    <article class="history-slide far-next" data-index="2">
+                        <div class="history-image">
+                            <img src="images/phone.jpg" alt="Huawei Consumer Business">
+                        </div>
+                        <div class="history-content">
+                            <div class="era-year">2006-2012</div>
+                            <h3 class="era-title">Consumer Business Launch</h3>
+                            <p class="era-description">Huawei entered the competitive consumer electronics market, starting with mobile broadband devices and evolving into smartphones.</p>
+                            <ul class="era-highlights">
+                                <li>Launched first Android smartphone (2009)</li>
+                                <li>Introduced Ascend smartphone series</li>
+                                <li>Became top 3 global smartphone vendor</li>
+                                <li>Established Huawei Device division</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <!-- Slide 4 -->
+                    <article class="history-slide" data-index="3">
+                        <div class="history-image">
+                            <img src="images/5G Leadership Era.jpg" alt="Huawei 5G Technology">
+                        </div>
+                        <div class="history-content">
+                            <div class="era-year">2013-2018</div>
+                            <h3 class="era-title">5G Leadership Era</h3>
+                            <p class="era-description">Huawei emerged as a global leader in 5G technology while strengthening its position in premium smartphones and cloud services.</p>
+                            <ul class="era-highlights">
+                                <li>Became world's largest telecom equipment maker</li>
+                                <li>Partnered with Leica for smartphone cameras</li>
+                                <li>Launched P and Mate flagship series</li>
+                                <li>Led global 5G standard essential patents</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <!-- Slide 5 -->
+                    <article class="history-slide" data-index="4">
+                        <div class="history-image">
+                            <img src="images/Adaptation & Innovation.jpg" alt="Huawei HarmonyOS">
+                        </div>
+                        <div class="history-content">
+                            <div class="era-year">2019-2021</div>
+                            <h3 class="era-title">Adaptation & Innovation</h3>
+                            <p class="era-description">Facing challenges, Huawei accelerated innovation in software and ecosystems, launching HarmonyOS and strengthening cloud services.</p>
+                            <ul class="era-highlights">
+                                <li>Launched HarmonyOS (2019)</li>
+                                <li>Expanded cloud computing services</li>
+                                <li>Strengthened R&D in semiconductors</li>
+                                <li>Diversified into enterprise solutions</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <!-- Slide 6 -->
+                    <article class="history-slide" data-index="5">
+                        <div class="history-image">
+                            <img src="images/New Frontiers.avif" alt="Huawei Future Technology">
+                        </div>
+                        <div class="history-content">
+                            <div class="era-year">2022-Present</div>
+                            <h3 class="era-title">New Frontiers</h3>
+                            <p class="era-description">Huawei continues to push boundaries in AI, cloud computing, and smart ecosystems while maintaining telecom leadership.</p>
+                            <ul class="era-highlights">
+                                <li>Expanded HarmonyOS ecosystem</li>
+                                <li>Advanced AI and cloud computing services</li>
+                                <li>Launched electric vehicle solutions</li>
+                                <li>Continued 5G+ innovation</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="history-nav">
+                    <button id="prevSlide" aria-label="Previous slide">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="nextSlide" aria-label="Next slide">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="history-pagination" id="historyPagination">
+                    <div class="history-dot active" data-index="0"></div>
+                    <div class="history-dot" data-index="1"></div>
+                    <div class="history-dot" data-index="2"></div>
+                    <div class="history-dot" data-index="3"></div>
+                    <div class="history-dot" data-index="4"></div>
+                    <div class="history-dot" data-index="5"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <article class="product-card">
+                    <figure class="product-img">
+                        <img src="images/huawei Smartphones.jpg" alt="Huawei Smartphone">
+                    </figure>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <i class="fas fa-mobile-alt"></i>
+                            Smartphones
+                        </h3>
+                        <p class="product-desc">Flagship devices with cutting-edge camera technology, powerful performance, and innovative designs that challenge the industry standards.</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check"></i> Leica co-engineered cameras</li>
+                            <li><i class="fas fa-check"></i> Kirin processors</li>
+                            <li><i class="fas fa-check"></i> HarmonyOS ecosystem</li>
+                        </ul>
+                        <div class="product-btns">
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                            <a href="#" class="btn">View Models</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Product 2 -->
+                <article class="product-card">
+                    <figure class="product-img">
+                        <img src="images/Laptops & Tablets.jpg" alt="Huawei Laptop">
+                    </figure>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <i class="fas fa-laptop"></i>
+                            Laptops & Tablets
+                        </h3>
+                        <p class="product-desc">Premium computing devices with innovative designs, powerful performance, and seamless connectivity across the Huawei ecosystem.</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check"></i> Ultra-slim designs</li>
+                            <li><i class="fas fa-check"></i> Multi-screen collaboration</li>
+                            <li><i class="fas fa-check"></i> Long battery life</li>
+                        </ul>
+                        <div class="product-btns">
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                            <a href="#" class="btn">View Models</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Product 3 -->
+                <article class="product-card">
+                    <figure class="product-img">
+                        <img src="images/Wearables.webp" alt="Huawei Watch">
+                    </figure>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <i class="fas fa-clock"></i>
+                            Wearables
+                        </h3>
+                        <p class="product-desc">Smartwatches and bands with advanced health monitoring capabilities, stylish designs, and seamless smartphone integration.</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check"></i> Advanced health tracking</li>
+                            <li><i class="fas fa-check"></i> Long battery life</li>
+                            <li><i class="fas fa-check"></i> Premium materials</li>
+                        </ul>
+                        <div class="product-btns">
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                            <a href="#" class="btn">View Models</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Product 4 -->
+                <article class="product-card">
+                    <figure class="product-img">
+                        <img src="images/Network Equipment.jpg" alt="Huawei Network Equipment">
+                    </figure>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <i class="fas fa-network-wired"></i>
+                            Network Equipment
+                        </h3>
+                        <p class="product-desc">5G and fiber solutions for carriers and enterprises worldwide, enabling faster, more reliable, and secure connectivity.</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check"></i> 5G infrastructure</li>
+                            <li><i class="fas fa-check"></i> Optical networking</li>
+                            <li><i class="fas fa-check"></i> Enterprise solutions</li>
+                        </ul>
+                        <div class="product-btns">
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                            <a href="#" class="btn">View Solutions</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Product 5 -->
+                <article class="product-card">
+                    <figure class="product-img">
+                        <img src="images/Huawei-Cloud-Service.jpg" alt="Huawei Cloud Services">
+                    </figure>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <i class="fas fa-cloud"></i>
+                            Cloud Services
+                        </h3>
+                        <p class="product-desc">Comprehensive cloud computing solutions for businesses of all sizes, with global infrastructure and AI capabilities.</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check"></i> Global infrastructure</li>
+                            <li><i class="fas fa-check"></i> AI-powered services</li>
+                            <li><i class="fas fa-check"></i> Industry solutions</li>
+                        </ul>
+                        <div class="product-btns">
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                            <a href="#" class="btn">View Services</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Product 6 -->
+                <article class="product-card">
+                    <figure class="product-img">
+                        <img src="images/AI Solutions.jpg" alt="Huawei AI Solutions">
+                    </figure>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <i class="fas fa-robot"></i>
+                            AI Solutions
+                        </h3>
+                        <p class="product-desc">Artificial intelligence platforms and services that empower businesses to transform operations and create new opportunities.</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check"></i> Computer vision</li>
+                            <li><i class="fas fa-check"></i> Natural language processing</li>
+                            <li><i class="fas fa-check"></i> Industry-specific AI</li>
+                        </ul>
+                        <div class="product-btns">
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                            <a href="#" class="btn">View Solutions</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Section -->
+    <section id="innovation" class="section innovation">
+        <div class="container">
+            <h2 class="section-title">Our Innovations</h2>
+            
+            <div class="innovation-grid">
+                <article class="innovation-card">
+                    <div class="innovation-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="innovation-title">5G Technology</h3>
+                    <p class="innovation-desc">Pioneering 5G solutions with the industry's most comprehensive product portfolio and leading standard essential patents.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </article>
+                
+                <article class="innovation-card">
+                    <div class="innovation-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="innovation-title">Kirin Processors</h3>
+                    <p class="innovation-desc">High-performance mobile processors with industry-leading AI capabilities and energy efficiency.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </article>
+                
+                <article class="innovation-card">
+                    <div class="innovation-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 class="innovation-title">XMAGE Imaging</h3>
+                    <p class="innovation-desc">Proprietary imaging technology that delivers professional-grade photography through computational optics.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </article>
+                
+                <article class="innovation-card">
+                    <div class="innovation-icon">
+                        <i class="fas fa-mobile-screen"></i>
+                    </div>
+                    <h3 class="innovation-title">HarmonyOS</h3>
+                    <p class="innovation-desc">A distributed operating system that creates a seamless experience across all devices in the ecosystem.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </article>
+                
+                <article class="innovation-card">
+                    <div class="innovation-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="innovation-title">Ascend AI</h3>
+                    <p class="innovation-desc">Full-stack AI solutions from chips to development platforms that accelerate digital transformation.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </article>
+                
+                <article class="innovation-card">
+                    <div class="innovation-icon">
+                        <i class="fas fa-charging-station"></i>
+                    </div>
+                    <h3 class="innovation-title">Digital Power</h3>
+                    <p class="innovation-desc">Clean energy solutions that integrate digital and power electronics technologies for a low-carbon future.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">Industry Recognition</h2>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active">
+                    <img src="images/Sarah Johnson.webp" alt="Sarah Johnson" class="testimonial-avatar">
+                    <blockquote class="testimonial-quote">
+                        Huawei's 5G solutions have transformed our network capabilities, delivering unprecedented speeds and reliability to our customers.
+                    </blockquote>
+                    <div class="testimonial-author">Sarah Johnson</div>
+                    <div class="testimonial-position">CTO, European Telecom Group</div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <img src="images/Michael_Chen.webp" alt="Michael Chen" class="testimonial-avatar">
+                    <blockquote class="testimonial-quote">
+                        The innovation in Huawei's smartphone cameras has set new benchmarks for mobile photography that the entire industry follows.
+                    </blockquote>
+                    <div class="testimonial-author">Michael Chen</div>
+                    <div class="testimonial-position">Editor-in-Chief, TechReview Magazine</div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <img src="images/Priya Patel.webp" alt="Priya Patel" class="testimonial-avatar">
+                    <blockquote class="testimonial-quote">
+                        Huawei's commitment to R&D is unparalleled. Their patents in 5G and AI are driving the entire tech industry forward.
+                    </blockquote>
+                    <div class="testimonial-author">Priya Patel</div>
+                    <div class="testimonial-position">Director, Global Innovation Forum</div>
+                </div>
+                
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active" data-slide="0"></div>
+                    <div class="testimonial-dot" data-slide="1"></div>
+                    <div class="testimonial-dot" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="cta-title">Join the Digital Revolution</h2>
+            <p class="cta-desc">Discover how Huawei's technologies can transform your business and connect you to the future of intelligent digital experiences.</p>
+            <div class="cta-btns">
+                <a href="#" class="btn">Contact Sales</a>
+                <a href="#" class="btn btn-secondary">Explore Careers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- About Column -->
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="huawei logo.jpg" alt="Huawei Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">Huawei</span>
+                    </div>
+                    <p class="footer-about">
+                        Building a fully connected, intelligent world through technological innovation and customer-centric solutions.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Products Column -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Smartphones</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Laptops & Tablets</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Wearables</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Network Equipment</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cloud Services</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Solutions Column -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Solutions</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Carrier Networks</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Enterprise</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Consumer Devices</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cloud & AI</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Digital Power</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Column -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Huawei Industrial Base, Shenzhen, China</a></li>
+                        <li><a href="tel:+123456789"><i class="fas fa-phone"></i> +1 234 567 89</a></li>
+                        <li><a href="mailto:info@huawei.com"><i class="fas fa-envelope"></i> info@huawei.com</a></li>
+                        <li><a href="#"><i class="fas fa-globe"></i> www.huawei.com</a></li>
+                        <li><a href="#"><i class="fas fa-info-circle"></i> Media Inquiries</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Huawei Technologies Co., Ltd. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', () => {
+            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !isExpanded);
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Testimonial slider
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            testimonialSlides.forEach(slide => slide.classList.remove('active'));
+            testimonialDots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonialSlides[index].classList.add('active');
+            testimonialDots[index].classList.add('active');
+            currentSlide = index;
+        }
+        
+        testimonialDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const slideIndex = parseInt(dot.getAttribute('data-slide'));
+                showSlide(slideIndex);
+            });
+        });
+        
+        // Auto-advance testimonials
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % testimonialSlides.length;
+            showSlide(currentSlide);
+        }, 5000);
+        
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Lazy loading for images
+        if ('loading' in HTMLImageElement.prototype) {
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            lazyImages.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        }
+
+        // History Slider
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.getElementById('historyTrack');
+            const slides = Array.from(document.querySelectorAll('.history-slide'));
+            const dots = Array.from(document.querySelectorAll('.history-dot'));
+            const prevBtn = document.getElementById('prevSlide');
+            const nextBtn = document.getElementById('nextSlide');
+            
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            
+            // Initialize slider
+            function updateSlider() {
+                slides.forEach((slide, index) => {
+                    slide.classList.remove('active', 'prev', 'next', 'far-prev', 'far-next');
+                    
+                    if (index === currentIndex) {
+                        slide.classList.add('active');
+                    } else if (index === (currentIndex - 1 + totalSlides) % totalSlides) {
+                        slide.classList.add('prev');
+                    } else if (index === (currentIndex + 1) % totalSlides) {
+                        slide.classList.add('next');
+                    } else if (index === (currentIndex - 2 + totalSlides) % totalSlides) {
+                        slide.classList.add('far-prev');
+                    } else if (index === (currentIndex + 2) % totalSlides) {
+                        slide.classList.add('far-next');
+                    }
+                });
+                
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            // Go to specific slide
+            function goToSlide(index) {
+                currentIndex = (index + totalSlides) % totalSlides;
+                updateSlider();
+            }
+            
+            // Next slide
+            function nextSlide() {
+                goToSlide(currentIndex + 1);
+            }
+            
+            // Previous slide
+            function prevSlide() {
+                goToSlide(currentIndex - 1);
+            }
+            
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const slideIndex = parseInt(dot.getAttribute('data-index'));
+                    goToSlide(slideIndex);
+                });
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                }
+            });
+            
+            // Initialize
+            updateSlider();
+        });
+    </script>
+</body>
+</html>
